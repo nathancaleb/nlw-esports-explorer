@@ -1,0 +1,197 @@
+*{ /* Utilizamos para resetar o CSS, limpar espaços em branco criado pelo navegador */
+    margin: 0; /* limpa a margem */
+    padding: 0; /* limpa o preenchimento */
+    box-sizing: border-box; /* remove a soma do tamanho+padding ou borda, não alterando o tamanho final do box
+                                ex: max-width: 580px; e padding: 40px; tamanho da box vai para 620px;
+                                com o box-sizing: border-box; mantera os 580px
+                            */
+}
+
+ul{
+    list-style: none; /* remove os pontinhos das listas */
+}
+
+body{
+    background-image: url(./assets/bg.jpg); /* seta a imagem */
+    background-position: top center; /* configura posição da imagem  de acordo com o tamanho da tela (navegador, smartphone, monitor)*/
+    background-size: 100% auto; /* configura tamanho da imagem em horizonta e vertical de acordo com o tamanho da tela (navegador, smartphone, monitor)*/
+    background-repeat: no-repeat; /* atributo de repetição da imagem, configurada para não repetir */
+    background-color: #121214; /* seta a cor no fundo, neste caso mesclando com o background-image */
+}
+
+body * {
+    font-family: "Inter", sans-serif; /* define a fonte de todos os texto dentro do body */
+    line-height: 160%; /* define em que altura o texto ira ficar dentro do box (encostada no topo, centralizada, ou encostada em baixo */
+
+}
+
+/* MEU HEADER // HEADER IMAGE - FEITO COM BASE NOS MEUS CONHECIMENTOS */
+
+/*
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 32px;
+    padding-top: 32px;
+}
+
+header img{
+    width: 120px;
+    height: 120px; <-- HEIGHT não é necessario, declarando o WIDTH, o css mantem a proporção
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    padding: 4px;
+}*/
+
+/* HEADER IMG MAYK BRITO - FEITO COM BASE NOS CONHECIMENTOS ENSINADOS PELO PROFESSOR */
+/* NESTE CASO, ELE PREFIRIU TRABALHAR COM A DIV DA IMAGEM, AO INVES DE TRABALHAR DIRETAMENTE COM A IMAGEM */
+header{
+    padding-top: 32px; /* usado para criar o distanciamento do topo da pagina */
+    height: calc(120px + 32px); /* Defini o tamanho do header
+                                    Esta sendo declarado devido a animação da foto de topo 
+                                    para que a pagina não fique ajustando toda vez que carregada
+                                */
+    animation: fromTop .7s .2s backwards; /* Assim que a animação FROMTOP é chamada, ele executa ela em 0.7s 
+                                             adiciona o ANIMATION-DELAY de 0.4s
+                                             BACKWARDS tras a animação pra dentro desse comando e sera executada depois do delay 
+                                             */
+}
+
+header div{
+    width: 120px; /* define o tamanho da div onde esta a imagem*/
+    margin: auto; /* centraliza a div, centralizando a imagem */
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* atribui a cor gradiente na borda */
+    border-radius: 50%; /* arredonda a borda */
+    display: flex; /* alinha a DIV com a Imagem */
+    padding: 4px; /* ajusta o preenchimento do div, formando a borda */
+    transition: transform .3s; /* Suaviza a transformação do DIV:HOVER abaixo 
+                                    assim que transition receber transform (no caso, recebe quando mouse passa por cima da imagem)
+                                    ele executa o transform em 3 milisegundos.
+                                */
+}
+
+header div:hover{ /* TAG:HOVER executa os comandos abaixo quando passa o mouse por cima do DIV*/
+    transform: scale(1.1);
+}
+
+header img{
+    width: 100%; /* informa a imagem para ficar 100% do local onde ela esta, no caso o DIV */
+    border-radius: 50%; /* deixa borda da imagem arredondada */
+}
+
+main{
+    max-width: 580px; /* definindo a largura maxima do corpo, automaticamente todas as tags dentro de main seguiram esse padrão */
+    width: 90%; /* defini o tamanho em relação a tela, neste caso oculpa 90% da tela */
+    margin: 32px auto; /* distanciamento entre a imagem de perfil e o conteudo do site (margin-top) 
+                          ira alinhar dentro da tela, neste caso centraliza */
+    display: grid; /* ira colocar as <SECTION> em um grid, permitindo utilziar o GAP para esparçar entre elas.
+                        poderia ser feito com FLEX, como exemplo abaixo: 
+                            display:flex;
+                            flex-direction: column;
+                            gap: 24px;
+                    */
+    gap: 24px; /* espaçamento entre as <SECTION> */
+}
+
+section{
+    color: white; /* cor da fonte dentro de todas <SECTION> */
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* cria o efeito gradiente */
+    padding-top: 4px; /* vai dar um espaçamento para cima tornando o section visivel*/
+    border-radius: 10px; /* arrendondamento da borda */
+}
+
+section div{ /* tudo se aplica a todas as <DIV> dentro da <SECTION> */
+    background-color: #2A2634; /* define cor de fundo */
+    padding: 32px; /* espaçamento em todas as posições */
+    padding-top: 24px; /* espaçamento apenas do topo */
+    border-radius: 8px; /* arredondamento da borda */
+}
+
+section h2{
+    letter-spacing: -0.47px; /* espaçamento entre as letras atribuida a todas as tags <H2> dentro da tag <Section>*/
+}
+
+section p{
+    letter-spacing: -0.18px; /* espaçamento entre as letras atribuida a todas as tags <P> dentro da tag <Section> */
+    color: #A1A1AA; /* cor atribuida a todas as tags <P> dentro da tag <Section> */
+}
+
+section ul{
+    display: flex; /* Display: função responsavel por apresentar a tag
+                        no caso do FLEX, ele atribui a todos os itens dentro de UL
+                    */
+    gap: 16px; /* GAP só funciona com FLEX. Usado para dar espaço entre os itens dentro de UL*/
+    margin-top: 24px; /* vai adicionar uma margem invisivel no topo de cada UL, vai ser usado para distanciar do texto dentro da Section*/
+    flex-wrap: wrap; /* usado para "quebrar-linha" quando não couber mais na tela, ao invés da lista ir aumentando horizontalmente
+                        A opção faz com que se ajuste a tela;
+                        */
+}
+
+section ul li{ /* Declarado para executar a animação de escala dos SECTION com suavidade */
+    transition: transform .3s;
+}
+
+section ul li:hover{ /* EXECUTA quando mouse passar por cima de cada LI*/
+    transform: scale(1.1); /* Aumenta a escala do elemento */
+}
+
+.games_list img{ /* aplicado nas tags <IMG> dessa class */
+    width: 90px; /* defini o tamanho do UL */
+    border-radius: 8px; /* Arrendondamento da borda de todos os itens da UL*/
+}
+
+.channel_list img{ /* aplicando nas tags <IMG> dessa class */
+    width: 70px; /* defini o tamanho do UL */
+    border-radius: 50%; /* vai arrendodar o suficiente a imagem para transformar de quadrada para circulo*/
+    border: 1px solid #443E54;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes fromTop{ /* animação da foto de perfil*/ 
+    from{ /* todo o inicio da animação é declarado aqui (posição, rotação, transparencia, etc)*/
+        opacity: 0; /* inicia na animação transparente */
+        transform: translateY(-30px); /* defini a posição inicial */
+    }
+
+    to{ /* todo o final da aniação é declarado aqui */
+        opacity: 1; /* finaliza animação sem transparencia */
+        transform: translateY(0); /* defini a posição final 
+                                    REFERENTE A POSIÇÃO: É definido por 0 a posição original onde o elemento foi declarado no CSS */
+    }
+    
+}
+
+main section{ /* Aplica animação dos cartões em todos os SECTION dentro de MAIN*/
+    animation: fromBottom .7s backwards; /* Assim que a animação FROMBOTTOM é chamada, ele executa ela em 0.7s
+                                            Backwards para trazer a animação para não flicar.
+                                            */
+}
+
+main section:nth-child(1){
+    animation-delay: .2s;
+}
+
+main section:nth-child(2){
+    animation-delay: .4s;
+}
+
+main section:nth-child(3){
+    animation-delay: .6s;
+}
+
+@keyframes fromBottom{ /* animação da dos cartões*/ 
+    from{
+        opacity: 0; /* inicia na animação transparente */
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1; /* finaliza animação sem transparencia */
+        transform: translateY(0);
+    }
+   
+}
